@@ -6,7 +6,6 @@ pipeline{
 	agent {
     		node {
 	    		label ''
-      			customWorkspace '/var/lib/jenkins/myspace'
     			}
   		}
 	stages{
@@ -14,8 +13,8 @@ pipeline{
 		   steps{
 			   cleanWs()
                   git url: 'https://github.com/shifali0102/my-app.git'
-			   sh 'mvn validate'
-                 sh 'mvn clean'
+			   bat 'mvn validate'
+                 bat 'mvn clean'
 		      
 	       	}
           	}
@@ -23,56 +22,56 @@ pipeline{
     
 	  stage('Compile Stage'){
 	       steps{
-		       sh 'mvn compile'
-		       sh 'mvn test-compile'
+		       bat 'mvn compile'
+		       bat 'mvn test-compile'
 	       }
              }
 		stage('self phase'){
 	       steps{
-		       sh 'mvn process-test-resources'
+		       bat 'mvn process-test-resources'
 	       }
              }
 		
           stage('Static Code Analysis Stage'){
 	        steps{
-	         	sh 'mvn sonar:sonar -Dsonar.host.url=http://52.172.158.204:9000/sonar/ '
+	         	bat 'mvn sonar:sonar -Dsonar.host.url=http://52.172.158.204:9000/sonar/ '
 		     }
 	 	}
 	  stage('Testing Stage'){
 	        steps{
-		  		sh 'mvn test'
-				sh 'mvn surefire:test'
+		  		bat 'mvn test'
+				bat 'mvn surefire:test'
 	     	  	        junit 'target/surefire-reports/*.xml'
 			      
 	      	             }
 			}
            stage('Code Coverage Test'){
 		  steps{
-				sh 'mvn cobertura:cobertura'
-			        sh 'mvn site'
+				bat 'mvn cobertura:cobertura'
+			        bat 'mvn site'
 			        cobertura coberturaReportFile: 'target/site/cobertura/coverage.xml'
 		  }
 	   }
 		stage('Performance Testing'){
 		  	steps{
-		           	   sh 'mvn verify'
+		           	   bat 'mvn verify'
 	                   	}
 	           	}
 		   stage('Package'){
           		steps{
-				sh 'mvn war:war'
+				bat 'mvn war:war'
 			}
 		}
 		stage('Deploy')
 		{
 		  steps{
-				sh 'mvn deploy'
+				bat 'mvn deploy'
 			}
 		}
 		
 		stage('Functional Testing'){
           		steps{
-				sh 'mvn integration-test'
+				bat 'mvn integration-test'
 			}
 		}
 		
