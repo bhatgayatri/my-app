@@ -12,7 +12,7 @@ pipeline{
            stage('Checkout Stage'){
 		   steps{
 			   cleanWs()
-                  git url: 'https://github.com/shifali0102/my-app.git'
+                  git url: 'https://github.com/bhatgayatri/my-app.git'
 			   bat 'mvn validate'
                  bat 'mvn clean'
 		      
