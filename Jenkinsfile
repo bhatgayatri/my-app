@@ -34,7 +34,7 @@ pipeline{
 		
           stage('Static Code Analysis Stage'){
 	        steps{
-	         	bat 'mvn sonar:sonar -Dsonar.host.url=http://52.172.158.204:9000/sonar/ '
+	         	bat 'mvn sonar:sonar -Dsonar.host.url=http://52.172.158.204:9000/sonar/'
 		     }
 	 	}
 	  stage('Testing Stage'){
