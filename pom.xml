@@ -113,12 +113,12 @@
     <repository>
         <id>central</id>
         <name>artifactory-pod-releases</name>
-        <url>http://localhost:8081/artifactory/poc1-repo</url>
+        <url>http://127.0.0.1:8081/artifactory/poc1-repo</url>
     </repository>
     <snapshotRepository>
         <id>snapshots</id>
         <name>artifactory-pod-snapshots</name>
-        <url>http://localhost:8081/artifactory/poc1-repo</url>
+        <url>http://127.0.0.1:8081/artifactory/poc1-repo</url>
     </snapshotRepository>
 </distributionManagement>
 
