@@ -112,13 +112,13 @@
 <distributionManagement>
     <repository>
         <id>central</id>
-        <name>artifactory-pod-releases</name>
-        <url>http://127.0.0.1:8081/artifactory/My-repo</url>
+        <name>PUNITP128119L-releases</name>
+        <url>http://localhost:8081/artifactory/My-App</url>
     </repository>
     <snapshotRepository>
         <id>snapshots</id>
-        <name>artifactory-pod-snapshots</name>
-        <url>http://127.0.0.1:8081/artifactory/My-repo</url>
+        <name>PUNITP128119L-snapshots</name>
+        <url>http://localhost:8081/artifactory/My-App</url>
     </snapshotRepository>
 </distributionManagement>
 
